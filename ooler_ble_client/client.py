@@ -164,7 +164,7 @@ class OolerBLEDevice:
             mode = MODE_INT_TO_MODE_STATE[mode_int]
             self._state.mode = mode
         elif uuid == SETTEMP_CHAR:
-            if power == True:
+            if self._state.power == True:
                 settemp_int = int.from_bytes(data, "little")
                 self._state.set_temperature = settemp_int
         elif uuid == ACTUALTEMP_CHAR:
